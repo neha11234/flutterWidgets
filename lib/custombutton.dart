@@ -13,10 +13,11 @@ class CustomButton extends StatelessWidget {
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.green, borderRadius: BorderRadius.circular(20)),
+              color: const Color.fromARGB(255, 3, 49, 87),
+              borderRadius: BorderRadius.circular(20)),
           child: Center(
             child: Text(
-              "Forget Password?",
+              text,
               style: TextStyle(color: Colors.white),
             ),
           ),

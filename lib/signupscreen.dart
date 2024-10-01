@@ -1,15 +1,19 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:project/custombutton.dart';
 
 import 'package:project/customfield.dart';
-import 'package:project/signupscreen.dart';
+import 'package:project/loginScreen.dart';
 
-class Loginscreen extends StatelessWidget {
-  const Loginscreen({super.key});
+class Signupscreen extends StatelessWidget {
+  const Signupscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
+    final TextEditingController Usercontroller = TextEditingController();
+    TextEditingController Contactcontroller = TextEditingController();
+    TextEditingController emailController = TextEditingController();
     TextEditingController passwordcontroller = TextEditingController();
     return Scaffold(
       body: SafeArea(
@@ -20,7 +24,7 @@ class Loginscreen extends StatelessWidget {
             children: [
               const Center(
                   child: Text(
-                "Login",
+                "Sign Up",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
               )),
               // TextField(
@@ -69,6 +73,21 @@ class Loginscreen extends StatelessWidget {
                   //   ispass: true,
                   //   controller: passwordcontroller,
                   // ),
+                  CustomTextField(
+                    suffixIcon: Icon(color: Colors.grey, Icons.people),
+                    controller: Usercontroller,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  // ),
+                  CustomTextField(
+                    suffixIcon: Icon(color: Colors.grey, Icons.phone),
+                    controller: Contactcontroller,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   CustomTextField(
                     suffixIcon: Icon(color: Colors.grey, Icons.email),
                     controller: emailController,
@@ -123,28 +142,30 @@ class Loginscreen extends StatelessWidget {
               ),
               CustomButton(
                   onTap: () {
-                    print(emailController.text.trim());
-                    print(passwordcontroller.text.trim());
+                    log(Usercontroller.text.trim());
+                    log(Contactcontroller.text.trim());
+                    log(emailController.text.trim());
+                    log(passwordcontroller.text.trim());
                   },
-                  text: "login"),
+                  text: "Sign up"),
               const SizedBox(
                 height: 15,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Dont have an account",
+                  Text("Already have an account",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w400)),
                   TextButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => Signupscreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Loginscreen()));
                       },
                       child: Text(
-                        "login",
+                        "Sign Up",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w500),
                       ))
